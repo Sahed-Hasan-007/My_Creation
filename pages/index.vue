@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-blue-100">Hellow</p>
+    <nuxt-link to="/eCommerce" class="text-gray-400">Hellow</nuxt-link>
 
   </div>
 </template>
