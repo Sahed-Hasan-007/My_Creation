@@ -175,6 +175,7 @@ definePageMeta({
 const cartStore = useCartStore();
 
 const favoriteStore = useFavoriteStore();
+
 const popupVisibleCart = ref(false);
 const popupVisibleFavorite = ref(false);
 
