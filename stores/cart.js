@@ -2,44 +2,48 @@ import { defineStore } from "pinia";
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
-    cartItems: JSON.parse(localStorage.getItem("cartItems")) || [], // Load from local storage
+    cartItems: [], // Initialize empty
   }),
   actions: {
     // Add an item to the cart
     addToCart(item) {
       const existingItem = this.cartItems.find(
-        (cartItem) => cartItem.id === item.id
+          (cartItem) => cartItem.id === item.id
       );
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
         this.cartItems.push({ ...item, quantity: 1 });
       }
-      this.saveToLocalStorage(); // Save to local storage
+      this.saveToLocalStorage();
     },
-    
+
     // Remove an item from the cart
     removeFromCart(id) {
       this.cartItems = this.cartItems.filter((item) => item.id !== id);
-      this.saveToLocalStorage(); // Save to local storage
+      this.saveToLocalStorage();
     },
-    
-    // Clear all items from the cart
+
+    // Clear cart
     clearCart() {
       this.cartItems = [];
-      this.saveToLocalStorage(); // Save to local storage
+      this.saveToLocalStorage();
     },
 
-    // Save cart state to local storage
+    // Save cart to local storage
     saveToLocalStorage() {
-      localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
+      if (process.client) {
+        localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
+      }
     },
 
-    // Load cart state from local storage
+    // Load cart from local storage
     loadFromLocalStorage() {
-      const storedCart = localStorage.getItem("cartItems");
-      if (storedCart) {
-        this.cartItems = JSON.parse(storedCart);
+      if (process.client) {
+        const storedCart = localStorage.getItem("cartItems");
+        if (storedCart) {
+          this.cartItems = JSON.parse(storedCart);
+        }
       }
     },
   },

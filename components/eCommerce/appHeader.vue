@@ -19,7 +19,7 @@
           <!-- Desktop Navigation -->
           <nav class="hidden lg:flex space-x-1">
             <NuxtLink
-                to="/eCommerce"
+                to="/pages/ecommerce"
                 class="relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 group"
                 active-class="text-green-600"
             >
@@ -28,7 +28,7 @@
             </NuxtLink>
 
             <NuxtLink
-                to="/eCommerce/products"
+                to="/pages/ecommerce/products"
                 class="relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 group"
                 active-class="text-green-600"
             >
@@ -38,7 +38,7 @@
 
             <div class="relative group">
               <NuxtLink
-                  to="/eCommerce/cart"
+                  to="/pages/ecommerce/cart"
                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300"
                   active-class="text-green-600"
               >
@@ -56,7 +56,7 @@
 
             <div class="relative group">
               <NuxtLink
-                  to="/eCommerce/favorites"
+                  to="/pages/ecommerce/favorites"
                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300"
                   active-class="text-green-600"
               >
