@@ -41,7 +41,7 @@
           </p>
 
           <div class="flex flex-wrap gap-4 pt-4">
-            <NuxtLink to="/products" class="px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white cursor-pointer font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+            <NuxtLink to="/ecommerce/products" class="px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white cursor-pointer font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
               Shop Now
             </NuxtLink>
             <NuxtLink to="/public" class="px-8 py-3 border-2 border-gray-300 text-gray-700 font-medium cursor-pointer rounded-lg hover:border-green-500 hover:text-green-600 transform hover:-translate-y-1 transition-all duration-300">

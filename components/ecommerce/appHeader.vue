@@ -6,7 +6,7 @@
         <div class="flex justify-between items-center h-16 sm:h-20">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <NuxtLink to="/public" class="relative group">
+            <NuxtLink to="/ecommerce" class="relative group">
               <img
                   src="/images/eCommerce/landingLogo.png"
                   alt="Logo"
@@ -19,7 +19,7 @@
           <!-- Desktop Navigation -->
           <nav class="hidden lg:flex space-x-1">
             <NuxtLink
-                to="/pages/ecommerce"
+                to="/ecommerce"
                 class="relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 group"
                 active-class="text-green-600"
             >
@@ -28,7 +28,7 @@
             </NuxtLink>
 
             <NuxtLink
-                to="/pages/ecommerce/products"
+                to="/ecommerce/products"
                 class="relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 group"
                 active-class="text-green-600"
             >
@@ -38,7 +38,7 @@
 
             <div class="relative group">
               <NuxtLink
-                  to="/pages/ecommerce/cart"
+                  to="/ecommerce/cart"
                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300"
                   active-class="text-green-600"
               >
@@ -56,7 +56,7 @@
 
             <div class="relative group">
               <NuxtLink
-                  to="/pages/ecommerce/favorites"
+                  to="/ecommerce/favorites"
                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300"
                   active-class="text-green-600"
               >
@@ -93,7 +93,7 @@
       >
         <div class="px-2 pt-2 pb-3 space-y-1">
           <NuxtLink
-              to="/public"
+              to="/ecommerce"
               class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-colors duration-200"
               @click="isMobileMenuOpen = false"
           >
@@ -101,7 +101,7 @@
           </NuxtLink>
 
           <NuxtLink
-              to="/products"
+              to="/ecommerce/products"
               class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-colors duration-200"
               @click="isMobileMenuOpen = false"
           >
@@ -109,7 +109,7 @@
           </NuxtLink>
 
           <NuxtLink
-              to="/cart"
+              to="/ecommerce/cart"
               class="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-colors duration-200"
               @click="isMobileMenuOpen = false"
           >
@@ -124,7 +124,7 @@
           </NuxtLink>
 
           <NuxtLink
-              to="/favorites"
+              to="/ecommerce/favorites"
               class="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-colors duration-200"
               @click="isMobileMenuOpen = false"
           >

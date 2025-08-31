@@ -1,5 +1,5 @@
 <script setup>
-import landingPageBody from "~/components/eCommerce/landingPageBody.vue";
+import landingPageBody from "~/components/ecommerce/landingPageBody.vue";
 definePageMeta({
   layout: 'e-commerce'
 })
@@ -8,5 +8,5 @@ definePageMeta({
 
 
 <template>
-  <e-commerce-landing-page-body />
+  <landingPageBody />
 </template>

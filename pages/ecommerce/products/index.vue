@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import productsBody from "~/components/eCommerce/productsBody.vue";
+import productsBody from "~/components/ecommerce/productsBody.vue";
 
 definePageMeta({
   layout: 'e-commerce'

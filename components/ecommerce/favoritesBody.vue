@@ -10,7 +10,7 @@
           Your Favorites
         </h1>
         <NuxtLink
-            to="/products"
+            to="/ecommerce/products"
             class="text-green-600 hover:text-green-700 flex items-center transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">

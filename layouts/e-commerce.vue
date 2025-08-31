@@ -1,16 +1,18 @@
 <script setup lang="ts">
+import Nav from "~/components/ecommerce/appHeader.vue";
+import Footer from "~/components/ecommerce/appFooter.vue";
 
 </script>
 <template>
 
   <div>
-    <e-commerce-app-header />
+    <Nav/>
 
     <div>
       <slot />
     </div>
 
-    <e-commerce-app-footer />
+    <Footer/>
   </div>
 
 </template>
