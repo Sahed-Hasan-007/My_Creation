@@ -20,7 +20,7 @@
 
         <!-- Navigation Items -->
         <div class="flex items-center space-x-8">
-          <nuxt-link to="/ecommerce" class="nav-link">Ecommerce</nuxt-link>
+          <nuxt-link to="/ecommerce" class="nav-link">E-commerce</nuxt-link>
           <nuxt-link to="/globe" class="nav-link">Globe</nuxt-link>
           <nuxt-link to="" class="nav-link">About</nuxt-link>
           <nuxt-link to="" class="nav-link">Contact</nuxt-link>
