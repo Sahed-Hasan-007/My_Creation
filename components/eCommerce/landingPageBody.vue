@@ -72,7 +72,7 @@
           <div class="relative group">
             <div class="absolute -inset-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl opacity-75 group-hover:opacity-100 blur-lg group-hover:blur-xl transition-all duration-500"></div>
             <img
-                src="/images/ecommerce/landing_page.png"
+                src="/images/eCommerce/landing_page.png"
                 alt="E-commerce platform showcase"
                 class="relative rounded-xl border-4 border-white shadow-2xl transform transition-all duration-500 group-hover:-rotate-1 group-hover:scale-[1.02]"
             />
