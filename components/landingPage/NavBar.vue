@@ -7,7 +7,7 @@
   >
     <div class="max-w-[1300px] mx-auto px-6">
       <div
-          class="nav-container backdrop-blur-lg bg-white/10 rounded-full pr-8 pl-4 flex items-center justify-between border-2 border-white/20 shadow-lg transition duration-500"
+          class="nav-container backdrop-blur-lg bg-white/10 rounded-2xl pr-8 pl-4 flex items-center justify-between border-2 border-white/20 shadow-lg transition duration-500"
           :class="{ 'scrolled': isScrolled }"
       >
         <!-- Logo -->
@@ -41,17 +41,19 @@
 
               <!-- Dropdown -->
               <div
-                  class="absolute left-0 mt-3 w-40 bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-white/20 overflow-hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 origin-top"
+                  class="absolute left-0 mt-4 w-40 bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-white/20 overflow-hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 origin-top"
               >
                 <nuxt-link
                     v-for="(child, idx) in item.children"
                     :key="idx"
                     :to="child.to"
                     class="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/20 transition-all duration-300"
+                    :class="{'border-b border-white/20': idx !== item.children.length - 1}"
                 >
-                  {{ child.name }}
+                  <p>{{ child.name }}</p>
                 </nuxt-link>
               </div>
+
             </div>
           </template>
         </div>
@@ -98,11 +100,21 @@
             class="md:hidden mt-3 bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-white/20 overflow-hidden"
         >
           <template v-for="(item, index) in navItems" :key="index">
-            <div v-if="!item.children">
-              <nuxt-link :to="item.to" class="mobile-link">{{ item.name }}</nuxt-link>
+            <!-- Single Link -->
+            <div v-if="!item.children" class="border-b border-white/20 last:border-b-0">
+              <nuxt-link
+                  :to="item.to"
+                  class="mobile-link py-3 block"
+              >
+                {{ item.name }}
+              </nuxt-link>
             </div>
-            <details v-else class="group">
-              <summary class="mobile-link flex justify-between items-center cursor-pointer">
+
+            <!-- Dropdown -->
+            <details v-else class="group border-b border-white/20 last:border-b-0">
+              <summary
+                  class="mobile-link flex justify-between items-center py-3 cursor-pointer select-none transition-all duration-300 hover:bg-white/20"
+              >
                 {{ item.name }}
                 <svg
                     class="w-4 h-4 transition-transform duration-300 group-open:rotate-180"
@@ -114,12 +126,12 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
                 </svg>
               </summary>
-              <div class="pl-6">
+              <div class="pl-6 flex flex-col bg-white/5">
                 <nuxt-link
                     v-for="(child, idx) in item.children"
                     :key="idx"
                     :to="child.to"
-                    class="mobile-link"
+                    class="mobile-link py-2 border-b border-white/20 last:border-b-0 hover:bg-white/20"
                 >
                   {{ child.name }}
                 </nuxt-link>
@@ -127,6 +139,7 @@
             </details>
           </template>
         </div>
+
       </transition>
     </div>
   </nav>
@@ -156,6 +169,7 @@ const navItems = [
     name: 'Explore',
     children: [
       { name: 'Globe', to: '/globe' },
+      { name: 'Robo', to: '/globe' },
       // Add more dropdown items here
     ]
   },
@@ -170,8 +184,20 @@ const navItems = [
   @apply relative text-white/80 hover:text-white font-medium cursor-pointer transition-all duration-300;
 }
 .mobile-link {
-  @apply block px-4 py-3 text-white/80 hover:text-white hover:bg-white/20 transition-all duration-300;
+  @apply px-4 text-white/80 font-medium transition-all duration-300;
 }
+
+/* Optional: smooth expand/collapse for dropdown */
+details > div {
+  @apply overflow-hidden transition-all duration-300;
+}
+details[open] > div {
+  @apply max-h-screen;
+}
+details > div {
+  max-height: 0;
+}
+
 .nav-container {
   position: relative;
   overflow: visible; /* important */
