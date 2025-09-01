@@ -7,15 +7,15 @@
   >
     <div class="max-w-[1300px] mx-auto px-6">
       <div
-          class="nav-container backdrop-blur-lg bg-white/10 rounded-full pr-8 pl-4 flex items-center justify-between border border-white/20 shadow-lg transition duration-500"
+          class="nav-container backdrop-blur-lg bg-white/10 rounded-full pr-8 pl-4 flex items-center justify-between border-2 border-white/20 shadow-lg transition duration-500"
           :class="{ 'scrolled': isScrolled }"
       >
         <!-- Logo/Icon -->
-        <picture>
+        <picture class="py-[2px]">
           <img
               :src="'/images/landingPage/mySign.png'"
               alt="Logo"
-              class="h-14 w-auto transition-transform duration-500 hover:scale-110 hover:rotate-6 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+              class="h-12 w-auto transition-transform duration-500 hover:scale-110 hover:rotate-6 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
           />
         </picture>
 
