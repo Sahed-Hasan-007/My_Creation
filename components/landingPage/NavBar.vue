@@ -7,7 +7,7 @@
   >
     <div class="max-w-[1300px] mx-auto px-6">
       <div
-          class="nav-container backdrop-blur-lg bg-white/10 rounded-2xl pr-8 pl-4 flex items-center justify-between border-2 border-white/20 shadow-lg transition duration-500"
+          class="nav-container backdrop-blur-lg bg-white/10 rounded-2xl px-4 flex items-center justify-between border-2 border-white/20 shadow-lg transition duration-500"
           :class="{ 'scrolled': isScrolled }"
       >
         <!-- Logo -->
@@ -216,7 +216,7 @@ details > div {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  background:  #ffffff;
   transition: width 0.3s ease;
   border-radius: 4px;
 }
