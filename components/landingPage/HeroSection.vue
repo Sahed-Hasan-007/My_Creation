@@ -1,8 +1,8 @@
 <template>
-  <div class="relative z-10 min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-28 px-4">
+  <div class="relative z-10 min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-36 px-4">
     <div class="text-center w-full max-w-6xl mx-auto">
       <!-- Real-time Clock -->
-      <div class="relative mb-8 sm:mb-12 lg:mb-16">
+      <div class="relative mb-6 sm:mb-12 lg:mb-10">
         <div class="inline-block">
           <!-- Clock -->
           <div class="relative">
