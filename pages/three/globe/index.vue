@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Globe from '~/components/globe/Globe.vue'
+import Globe from '~/components/three/globe/Globe.vue'
 
 definePageMeta({
   layout: 'blank'
