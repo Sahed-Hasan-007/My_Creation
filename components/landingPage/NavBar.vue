@@ -7,7 +7,7 @@
   >
     <div class="max-w-[1300px] mx-auto px-6">
       <div
-          class="nav-container backdrop-blur-lg bg-white/10 rounded-2xl px-4 flex items-center justify-between border-2 border-white/20 shadow-lg transition duration-500"
+          class="nav-container backdrop-blur-lg bg-white/10 rounded-2xl px-4 flex items-center justify-between border-2 border-white/20 hover:border-white/70 shadow-lg transition duration-500"
           :class="{ 'scrolled': isScrolled }"
       >
         <!-- Logo -->
@@ -41,7 +41,7 @@
 
               <!-- Dropdown -->
               <div
-                  class="absolute left-0 mt-4 w-40 bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-white/20 overflow-hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 origin-top"
+                  class="absolute left-0 mt-5 w-40 bg-white/10 backdrop-blur-md rounded-xl shadow-lg border-2 border-white/20 overflow-hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 origin-top"
               >
                 <nuxt-link
                     v-for="(child, idx) in item.children"
@@ -164,13 +164,12 @@ onUnmounted(() => {
 
 // Nav items array
 const navItems = [
-  { name: 'E-commerce', to: '/ecommerce' },
   {
     name: 'Explore',
     children: [
-      { name: 'Globe', to: '/globe' },
-      { name: 'Robo', to: '/globe' },
-      // Add more dropdown items here
+      { name: 'E-commerce', to: '/ecommerce' },
+      { name: 'Globe', to: '/three/globe' },
+      { name: 'Robo', to: '/three/globe' },
     ]
   },
   { name: 'About', to: '/about' },
