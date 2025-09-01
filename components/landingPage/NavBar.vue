@@ -5,7 +5,7 @@
       isScrolled ? 'pt-0' : 'pt-6'
     ]"
   >
-    <div class="max-w-[1200px] mx-auto px-6">
+    <div class="max-w-[1300px] mx-auto px-6">
       <div
           class="backdrop-blur-md bg-white/10 hover:bg-white/20 rounded-full pr-8 pl-4 flex items-center justify-between border-2 border-white/20 hover:border-white/40 shadow-lg transition duration-300"
       >
