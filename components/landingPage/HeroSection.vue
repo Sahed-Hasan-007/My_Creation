@@ -6,7 +6,7 @@
         <div class="inline-block">
           <!-- Clock -->
           <div class="relative">
-            <div class="clock-wrapper" ref="clockWrapper">
+            <div class="clock-wrapper initial-hidden" ref="clockWrapper">
               <div class="clock-container relative rounded-full bg-transparent shadow-2xl">
                 <!-- Hour Markers -->
                 <div
@@ -27,7 +27,7 @@
 
                 <!-- Date Display -->
                 <div
-                    class="absolute top-[58%] sm:top-[60%] left-1/2 transform -translate-x-1/2 text-white/90 text-xs sm:text-sm md:text-base lg:text-lg font-semibold bg-black/40 px-2 sm:px-3 md:px-4 lg:px-5 py-1 sm:py-2 rounded-full whitespace-nowrap date-display"
+                    class="absolute top-[58%] sm:top-[60%] left-1/2 transform -translate-x-1/2 text-white/90 text-xs sm:text-sm md:text-base lg:text-lg font-semibold bg-black/40 px-2 sm:px-3 md:px-4 lg:px-5 py-1 sm:py-2 rounded-full whitespace-nowrap date-display initial-hidden"
                     ref="dateDisplay"
                 >
                   {{ currentDate }}
@@ -37,27 +37,27 @@
                 <!-- Hour Hand -->
                 <div
                     :style="getHourHandStyle()"
-                    class="absolute bottom-1/2 left-1/2 bg-gradient-to-t from-white/90 to-gray-300 rounded-t-full shadow-md transition-transform duration-100 hour-hand"
+                    class="absolute bottom-1/2 left-1/2 bg-gradient-to-t from-white/90 to-gray-300 rounded-t-full shadow-md transition-transform duration-100 hour-hand initial-hidden"
                     ref="hourHand"
                 ></div>
 
                 <!-- Minute Hand -->
                 <div
                     :style="getMinuteHandStyle()"
-                    class="absolute bottom-1/2 left-1/2 bg-gradient-to-t from-white/90 to-gray-300 rounded-t-full shadow-md transition-transform duration-100 minute-hand"
+                    class="absolute bottom-1/2 left-1/2 bg-gradient-to-t from-white/90 to-gray-300 rounded-t-full shadow-md transition-transform duration-100 minute-hand initial-hidden"
                     ref="minuteHand"
                 ></div>
 
                 <!-- Second Hand -->
                 <div
                     :style="getSecondHandStyle()"
-                    class="absolute bottom-1/2 left-1/2 bg-gradient-to-t from-red-500 to-red-400 rounded-t-full shadow-md transition-transform duration-75 second-hand"
+                    class="absolute bottom-1/2 left-1/2 bg-gradient-to-t from-red-500 to-red-400 rounded-t-full shadow-md transition-transform duration-75 second-hand initial-hidden"
                     ref="secondHand"
                 ></div>
 
                 <!-- Center Dot -->
                 <div
-                    class="absolute top-1/2 left-1/2 bg-gradient-to-br from-gray-300 to-white rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-inner border border-white/40 z-10 center-dot"
+                    class="absolute top-1/2 left-1/2 bg-gradient-to-br from-gray-300 to-white rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-inner border border-white/40 z-10 center-dot initial-hidden"
                     ref="centerDot"
                 ></div>
               </div>
@@ -68,7 +68,7 @@
 
       <!-- Welcome Text -->
       <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight welcome-text" ref="welcomeText">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight welcome-text initial-hidden" ref="welcomeText">
           Experience the
           <span class="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent gradient-text">
             Future
@@ -76,7 +76,7 @@
         </h1>
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 sm:mt-8">
           <button
-              class="btn liquid shadow-md shadow-white/70 w-full sm:w-auto animated-button"
+              class="btn liquid shadow-md shadow-white/70 w-full sm:w-auto animated-button initial-hidden"
               ref="exploreButton"
               @click=""
           >
@@ -208,93 +208,61 @@ const updateClockSize = () => {
 
 // Animation functions
 const animateClockOnLoad = () => {
-  // Reset initial states for animation
-  if (clockWrapper.value) {
-    clockWrapper.value.style.opacity = '0';
-    clockWrapper.value.style.transform = 'scale(0.8) translateY(20px)';
-  }
-
-  if (hourHand.value) {
-    hourHand.value.style.opacity = '0';
-    hourHand.value.style.transform = `${getHourHandStyle().transform} scale(0.5)`;
-  }
-
-  if (minuteHand.value) {
-    minuteHand.value.style.opacity = '0';
-    minuteHand.value.style.transform = `${getMinuteHandStyle().transform} scale(0.5)`;
-  }
-
-  if (secondHand.value) {
-    secondHand.value.style.opacity = '0';
-    secondHand.value.style.transform = `${getSecondHandStyle().transform} scale(0.5)`;
-  }
-
-  if (centerDot.value) {
-    centerDot.value.style.opacity = '0';
-    centerDot.value.style.transform = 'translate(-50%, -50%) scale(0)';
-  }
-
-  if (dateDisplay.value) {
-    dateDisplay.value.style.opacity = '0';
-    dateDisplay.value.style.transform = 'translate(-50%, 20px)';
-  }
-
-  // Animate text elements
-  if (welcomeText.value) {
-    welcomeText.value.style.opacity = '0';
-    welcomeText.value.style.transform = 'translateY(30px)';
-  }
-
-  if (exploreButton.value) {
-    exploreButton.value.style.opacity = '0';
-    exploreButton.value.style.transform = 'translateY(20px)';
-  }
-
-  // Trigger animations with delays
+  // Animate clock wrapper
   setTimeout(() => {
     if (clockWrapper.value) {
+      clockWrapper.value.classList.remove('initial-hidden');
       clockWrapper.value.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
       clockWrapper.value.style.opacity = '1';
       clockWrapper.value.style.transform = 'scale(1) translateY(0)';
     }
   }, 200);
 
+  // Animate clock hands
   setTimeout(() => {
     if (hourHand.value) {
+      hourHand.value.classList.remove('initial-hidden');
       hourHand.value.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s';
       hourHand.value.style.opacity = '1';
       hourHand.value.style.transform = getHourHandStyle().transform;
     }
 
     if (minuteHand.value) {
+      minuteHand.value.classList.remove('initial-hidden');
       minuteHand.value.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s';
       minuteHand.value.style.opacity = '1';
       minuteHand.value.style.transform = getMinuteHandStyle().transform;
     }
 
     if (secondHand.value) {
+      secondHand.value.classList.remove('initial-hidden');
       secondHand.value.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s';
       secondHand.value.style.opacity = '1';
       secondHand.value.style.transform = getSecondHandStyle().transform;
     }
   }, 500);
 
+  // Animate center elements
   setTimeout(() => {
     if (centerDot.value) {
+      centerDot.value.classList.remove('initial-hidden');
       centerDot.value.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s';
       centerDot.value.style.opacity = '1';
       centerDot.value.style.transform = 'translate(-50%, -50%) scale(1)';
     }
 
     if (dateDisplay.value) {
+      dateDisplay.value.classList.remove('initial-hidden');
       dateDisplay.value.style.transition = 'all 0.5s ease-out 0.8s';
       dateDisplay.value.style.opacity = '1';
       dateDisplay.value.style.transform = 'translate(-50%, 0)';
     }
   }, 700);
 
+  // Animate text elements
   setTimeout(() => {
     if (welcomeText.value) {
+      welcomeText.value.classList.remove('initial-hidden');
       welcomeText.value.style.transition = 'all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.3s';
       welcomeText.value.style.opacity = '1';
       welcomeText.value.style.transform = 'translateY(0)';
@@ -303,6 +271,7 @@ const animateClockOnLoad = () => {
 
   setTimeout(() => {
     if (exploreButton.value) {
+      exploreButton.value.classList.remove('initial-hidden');
       exploreButton.value.style.transition = 'all 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s';
       exploreButton.value.style.opacity = '1';
       exploreButton.value.style.transform = 'translateY(0)';
@@ -349,6 +318,38 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* CRITICAL: Hide all animated elements initially */
+.initial-hidden {
+  opacity: 0;
+}
+
+/* Specific initial states for each element */
+.clock-wrapper.initial-hidden {
+  transform: scale(0.8) translateY(20px);
+}
+
+.hour-hand.initial-hidden,
+.minute-hand.initial-hidden,
+.second-hand.initial-hidden {
+  transform: translate(-50%, 0) scale(0.5);
+}
+
+.center-dot.initial-hidden {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.date-display.initial-hidden {
+  transform: translate(-50%, 20px);
+}
+
+.welcome-text.initial-hidden {
+  transform: translateY(30px);
+}
+
+.animated-button.initial-hidden {
+  transform: translateY(20px);
+}
+
 .clock-wrapper {
   display: inline-block;
   will-change: transform, opacity;
