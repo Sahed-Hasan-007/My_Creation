@@ -1,3 +1,33 @@
+<script setup lang="ts">
+import Globe from '~/components/globe/Globe.vue'
+
+definePageMeta({
+  layout: 'blank'
+})
+
+const textArea = ref(true)
+const isClosing = ref(false)
+
+const closeTextArea = () => {
+  isClosing.value = true
+  setTimeout(() => {
+    textArea.value = false
+  }, 900) // wait for animations (max delay + duration)
+}
+
+useHead({
+  title: 'Interactive 3D Globe',
+  meta: [{ name: 'description', content: 'Experience stunning 3D globe visualization with interactive controls' }],
+})
+
+useSeoMeta({
+  title: 'Interactive 3D Globe',
+  ogTitle: 'Interactive 3D Globe',
+  description: 'Experience stunning 3D globe visualization with interactive controls',
+  ogDescription: 'Experience stunning 3D globe visualization with interactive controls',
+})
+</script>
+
 <template>
   <div class="relative min-h-screen bg-black text-white overflow-hidden">
     <!-- Globe Background -->
@@ -60,32 +90,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import Globe from '~/components/globe/Globe.vue'
-
-const textArea = ref(true)
-const isClosing = ref(false)
-
-const closeTextArea = () => {
-  isClosing.value = true
-  setTimeout(() => {
-    textArea.value = false
-  }, 900) // wait for animations (max delay + duration)
-}
-
-useHead({
-  title: 'Interactive 3D Globe',
-  meta: [{ name: 'description', content: 'Experience stunning 3D globe visualization with interactive controls' }],
-})
-
-useSeoMeta({
-  title: 'Interactive 3D Globe',
-  ogTitle: 'Interactive 3D Globe',
-  description: 'Experience stunning 3D globe visualization with interactive controls',
-  ogDescription: 'Experience stunning 3D globe visualization with interactive controls',
-})
-</script>
 
 <style>
 @keyframes slideOutLeft {

@@ -65,27 +65,6 @@ onUnmounted(() => {
   transform: translateY(-2px) scale(0.98);
 }
 
-/* Animated glowing gradient border */
-.nav-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(135deg, #60a5fa, #a78bfa, #ec4899, #facc15);
-  background-size: 400% 400%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: borderGlow 8s ease infinite;
-}
-
-@keyframes borderGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 /* Nav links */
 .nav-link {
   @apply relative text-white/80 hover:text-white font-medium cursor-pointer transition-all duration-300;
