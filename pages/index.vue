@@ -33,24 +33,8 @@ useHead({
     </div>
 
     <!-- Components -->
-    <NavBar />
     <HeroSection />
 
-    <!-- Floating Elements -->
-    <div class="fixed inset-0 pointer-events-none z-5">
-      <div
-          class="absolute top-20 left-10 w-2 h-2 bg-white/40 rounded-full animate-pulse"
-      ></div>
-      <div
-          class="absolute top-40 right-20 w-1 h-1 bg-blue-400/60 rounded-full animate-ping"
-      ></div>
-      <div
-          class="absolute bottom-40 left-20 w-3 h-3 bg-purple-400/40 rounded-full animate-pulse"
-      ></div>
-      <div
-          class="absolute bottom-20 right-10 w-1.5 h-1.5 bg-white/50 rounded-full animate-ping"
-      ></div>
-    </div>
   </div>
 </template>
 
