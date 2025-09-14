@@ -5,6 +5,7 @@ export const useCartStore = defineStore("cart", {
   state: () => ({
 
     cartItems: [], // Initialize empty
+
   }),
   actions: {
     // Add an item to the cart
