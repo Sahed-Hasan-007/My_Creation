@@ -13,7 +13,7 @@
       ></div>
     </div>
 
-    <div class="relative px-4 sm:px-6 lg:px-8 py-10 z-20">
+    <div class="relative px-4 sm:px-6 lg:px-8 py-20 z-20">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <!-- Content Column -->
         <div class="space-y-6 z-10">
