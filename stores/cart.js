@@ -8,7 +8,6 @@ export const useCartStore = defineStore("cart", {
 
   }),
   actions: {
-
     // Add an item to the cart
     addToCart(item) {
       const existingItem = this.cartItems.find(
