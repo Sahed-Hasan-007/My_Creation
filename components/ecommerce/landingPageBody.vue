@@ -1,6 +1,6 @@
 <template>
-  <section class="relative overflow-hidden bg-gradient-to-br from-green-50 to-white">
-    <!-- Animated background bubbles -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-500 bg-cover bg-center">
+  <!-- Animated background bubbles -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div
           v-for="(bubble, index) in bubbles"
@@ -13,7 +13,7 @@
       ></div>
     </div>
 
-    <div class="relative px-4 sm:px-6 lg:px-8 py-10 z-20">
+    <div class="relative px-4 sm:px-6 lg:px-8 py-20 z-20">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <!-- Content Column -->
         <div class="space-y-6 z-10">
@@ -44,7 +44,7 @@
             <NuxtLink to="/ecommerce/products" class="px-8 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white cursor-pointer font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
               Shop Now
             </NuxtLink>
-            <NuxtLink to="/public" class="px-8 py-3 border-2 border-gray-300 text-gray-700 font-medium cursor-pointer rounded-lg hover:border-green-500 hover:text-green-600 transform hover:-translate-y-1 transition-all duration-300">
+            <NuxtLink to="/" class="px-8 py-3 border-2 border-gray-300 text-gray-700 font-medium cursor-pointer rounded-lg hover:border-green-500 hover:text-green-600 transform hover:-translate-y-1 transition-all duration-300">
               Learn More
             </NuxtLink>
           </div>
