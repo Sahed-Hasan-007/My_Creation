@@ -11,7 +11,6 @@ export const useCartStore = defineStore("cart", {
 
     // Add an item to the cart
     addToCart(item) {
-
       const existingItem = this.cartItems.find(
           (cartItem) => cartItem.id === item.id
       );
