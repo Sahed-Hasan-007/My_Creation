@@ -28,6 +28,7 @@ export const useCartStore = defineStore("cart", {
       }
 
       this.saveToLocalStorage();
+
     },
 
     // Remove an item from the cart
