@@ -13,7 +13,6 @@ export const useCartStore = defineStore("cart", {
     addToCart(item) {
 
       const existingItem = this.cartItems.find(
-
           (cartItem) => cartItem.id === item.id
       );
       if (existingItem) {
