@@ -1,3 +1,42 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const isScrolled = ref(false)
+const mobileOpen = ref(false)
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll)
+})
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll)
+})
+
+// Nav items array
+const navItems = [
+  {
+    name: 'Me',
+    children: [
+      { name: 'My Portfolio', to: '/' },
+      { name: 'My Gallery', to: '/' },
+    ]
+  },
+  {
+    name: 'Explore',
+    children: [
+      { name: 'E-commerce', to: '/ecommerce' },
+      { name: 'Globe', to: '/three/globe' },
+      { name: 'Robo', to: '/three/globe' },
+    ]
+  },
+  { name: 'About', to: '/about' },
+  { name: 'Contact', to: '/contact' }
+]
+</script>
+
 <template>
   <nav
       :class="[
@@ -144,38 +183,6 @@
     </div>
   </nav>
 </template>
-
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const isScrolled = ref(false)
-const mobileOpen = ref(false)
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50
-}
-
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll)
-})
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll)
-})
-
-// Nav items array
-const navItems = [
-  {
-    name: 'Explore',
-    children: [
-      { name: 'E-commerce', to: '/ecommerce' },
-      { name: 'Globe', to: '/three/globe' },
-      { name: 'Robo', to: '/three/globe' },
-    ]
-  },
-  { name: 'About', to: '/about' },
-  { name: 'Contact', to: '/contact' }
-]
-</script>
 
 
 <style scoped>
