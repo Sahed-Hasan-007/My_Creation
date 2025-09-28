@@ -19,7 +19,7 @@ const galleryImages = ref([
     title: 'Urban Portrait Collection',
     author: {
       name: 'Sarah Johnson',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80'
+      avatar: '/images/photoGallery/me.jpg'
     }
   },
   {
@@ -28,7 +28,7 @@ const galleryImages = ref([
     title: 'Mountain Wilderness',
     author: {
       name: 'Michael Chen',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80'
+      avatar: '/images/photoGallery/me.jpg'
     }
   },
   {
@@ -37,7 +37,7 @@ const galleryImages = ref([
     title: 'Modern Cityscape',
     author: {
       name: 'Elena Rodriguez',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80'
+      avatar: '/images/photoGallery/me.jpg'
     }
   },
   {
@@ -46,7 +46,7 @@ const galleryImages = ref([
     title: 'Golden Hour Vista',
     author: {
       name: 'David Thompson',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80'
+      avatar: '/images/photoGallery/me.jpg'
     }
   },
   {
@@ -55,7 +55,7 @@ const galleryImages = ref([
     title: 'Forest Expedition',
     author: {
       name: 'Anna Williams',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80'
+      avatar: '/images/photoGallery/me.jpg'
     }
   }
 ])
