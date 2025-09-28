@@ -264,7 +264,7 @@ const clearSearch = () => {
 onMounted(() => {
   setTimeout(() => {
     loading.value = false
-  }, 300)
+  }, 500)
 })
 
 // SEO Meta
