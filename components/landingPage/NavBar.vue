@@ -46,7 +46,7 @@ const navItems = [
   >
     <div class="max-w-[1300px] mx-auto px-6">
       <div
-          class="nav-container backdrop-blur-lg bg-white/10 rounded-2xl px-4 flex items-center justify-between border-2 border-white/20 hover:border-white/70 shadow-lg transition duration-500"
+          class="nav-container backdrop-blur-lg bg-white/10 rounded-2xl px-4 md:py-1 flex items-center justify-between border-2 border-white/20 hover:border-white/70 shadow-lg transition duration-500"
           :class="{ 'scrolled': isScrolled }"
       >
         <!-- Logo -->
