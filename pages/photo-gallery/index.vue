@@ -18,7 +18,7 @@ const galleryImages = ref([
     tag: 'portrait',
     title: 'Urban Portrait Collection',
     author: {
-      name: 'Sarah Johnson',
+      name: 'Sahed Hasan',
       avatar: '/images/photoGallery/me.jpg'
     }
   },
@@ -27,7 +27,7 @@ const galleryImages = ref([
     tag: 'nature',
     title: 'Mountain Wilderness',
     author: {
-      name: 'Michael Chen',
+      name: 'Sahed Hasan',
       avatar: '/images/photoGallery/me.jpg'
     }
   },
@@ -36,7 +36,7 @@ const galleryImages = ref([
     tag: 'architecture',
     title: 'Modern Cityscape',
     author: {
-      name: 'Elena Rodriguez',
+      name: 'Sahed Hasan',
       avatar: '/images/photoGallery/me.jpg'
     }
   },
@@ -45,7 +45,7 @@ const galleryImages = ref([
     tag: 'landscape',
     title: 'Golden Hour Vista',
     author: {
-      name: 'David Thompson',
+      name: 'Sahed Hasan',
       avatar: '/images/photoGallery/me.jpg'
     }
   },
@@ -54,7 +54,7 @@ const galleryImages = ref([
     tag: 'adventure',
     title: 'Forest Expedition',
     author: {
-      name: 'Anna Williams',
+      name: 'Sahed Hasan',
       avatar: '/images/photoGallery/me.jpg'
     }
   }
@@ -156,8 +156,9 @@ useHead({
 
       <nav class="sidebar-nav">
         <ul class="space-y-4">
-          <li><NuxtLink to="/" class="nav-link active">Home</NuxtLink></li>
-          <li><NuxtLink to="/gallery" class="nav-link">Gallery</NuxtLink></li>
+          <li><NuxtLink to="/" class="nav-link">Home</NuxtLink></li>
+          <li><NuxtLink to="/photo-gallery" class="nav-link active">Gallery</NuxtLink></li>
+          <li><NuxtLink to="/photo-gallery/photos" class="nav-link">Photos</NuxtLink></li>
         </ul>
       </nav>
 
