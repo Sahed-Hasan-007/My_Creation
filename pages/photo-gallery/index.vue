@@ -102,7 +102,7 @@ onMounted(() => {
   // Simulate loading
   setTimeout(() => {
     loading.value = false
-  }, 1500)
+  }, 500)
 
   // Start auto-slide for mobile
   if (window.innerWidth < 1024) {
@@ -145,9 +145,13 @@ useHead({
     <!-- Sidebar Menu -->
     <div class="sidebar" :class="{ 'sidebar-open': mobileMenuOpen }">
       <div class="sidebar-header">
-        <NuxtLink to="/" class="logo">
-          <span class="text-2xl font-bold tracking-wide">TULEN</span>
-        </NuxtLink>
+        <picture class="">
+          <img
+              :src="'/images/landingPage/mySign.png'"
+              alt="Logo"
+              class="h-12 w-auto transition-transform duration-500 hover:scale-110 hover:rotate-6 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+          />
+        </picture>
       </div>
 
       <nav class="sidebar-nav">

@@ -21,7 +21,7 @@ const navItems = [
     name: 'Me',
     children: [
       { name: 'My Portfolio', to: 'https://sahed-hasan-007.github.io/My_Portfolio.github.io/' },
-      { name: 'My Gallery', to: '/photo-gallery' },
+      { name: 'Photo Gallery', to: '/photo-gallery' },
     ]
   },
   {
