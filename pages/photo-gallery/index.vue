@@ -9,7 +9,7 @@ const currentSlide = ref(0)
 
 
 definePageMeta({
-  layout: 'default',
+  layout: 'blank',
 })
 // Gallery images with free online sources
 const galleryImages = ref([
