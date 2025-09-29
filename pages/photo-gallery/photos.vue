@@ -26,7 +26,6 @@ const categories = ref([
   { id: 'landscape', name: 'Landscapes', count: 6 },
 
   { id: 'architecture', name: 'Architecture', count: 5 },
-
   { id: 'nature', name: 'Nature', count: 5 }
 ])
 
