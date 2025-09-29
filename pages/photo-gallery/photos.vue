@@ -18,7 +18,6 @@ const searchTerm = ref('')
 
 // Gallery categories
 const categories = ref([
-
   { id: 'all', name: 'All Photos', count: 24 },
   { id: 'portrait', name: 'Portraits', count: 8 },
   { id: 'landscape', name: 'Landscapes', count: 6 },
