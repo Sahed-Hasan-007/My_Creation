@@ -22,6 +22,7 @@ const categories = ref([
   { id: 'all', name: 'All Photos', count: 24 },
 
   { id: 'portrait', name: 'Portraits', count: 8 },
+
   { id: 'landscape', name: 'Landscapes', count: 6 },
   { id: 'architecture', name: 'Architecture', count: 5 },
   { id: 'nature', name: 'Nature', count: 5 }
