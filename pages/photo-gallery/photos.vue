@@ -5,10 +5,6 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 // Page meta configuration
 definePageMeta({
   layout: 'blank',
-  pageTransition: {
-    name: 'slide-right',
-    mode: 'out-in'
-  }
 })
 
 // Reactive data
@@ -383,7 +379,7 @@ useHead({
                   v-for="category in categories"
                   :key="category.id"
                   @click="setCategory(category.id)"
-                  class="category-btn"
+                  class="category-btn group"
                   :class="{ 'category-active': currentCategory === category.id }"
               >
                 {{ category.name }}
@@ -606,19 +602,19 @@ useHead({
 }
 
 .category-btn {
-  @apply px-6 py-2 bg-gray-800 border border-gray-700 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:border-gray-500 transition-all duration-300 flex items-center gap-2;
+  @apply px-6 py-2 bg-gray-400 border border-gray-700 rounded-full text-sm font-medium text-black hover:text-gray-200 hover:scale-105 hover:border-gray-200 transition-all duration-300 flex items-center gap-2;
 }
 
 .category-active {
-  @apply bg-blue-600 border-blue-500 text-white;
+  @apply bg-gray-100 hover:text-gray-700 border-blue-500 text-gray-700;
 }
 
 .category-count {
-  @apply bg-gray-700 text-xs px-2 py-1 rounded-full;
+  @apply border border-black group-hover:border-gray-200 text-xs px-2 py-1 rounded-full transition-all duration-300;
 }
 
 .category-active .category-count {
-  @apply bg-blue-700;
+  @apply border border-gray-700;
 }
 
 /* Gallery Grid */
