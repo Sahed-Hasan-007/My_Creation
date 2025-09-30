@@ -2,7 +2,6 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export interface GalleryImage {
-
     id: number
     url: string
     title: string
