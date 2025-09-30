@@ -4,6 +4,7 @@ import { defineStore } from 'pinia'
 export interface GalleryImage {
 
     id: number
+
     url: string
     title: string
     category: 'portrait' | 'landscape' | 'architecture' | 'nature'
