@@ -15,6 +15,8 @@ const loading = ref(true)
 const mobileMenuOpen = ref(false)
 const currentCategory = ref('all')
 const searchTerm = ref('')
+const selectedImage = ref(null) // Track the selected image for the modal
+const showModal = ref(false) // Control modal visibility
 
 // Gallery categories
 const categories = ref([
@@ -41,6 +43,21 @@ const setCategory = (categoryId) => {
 
 const clearSearch = () => {
   searchTerm.value = ''
+}
+
+// Open modal with selected image
+const openImageModal = (image) => {
+  selectedImage.value = image
+  showModal.value = true
+}
+
+// Close modal
+const closeImageModal = () => {
+  showModal.value = false
+  // Delay clearing selectedImage to allow exit animation to complete
+  setTimeout(() => {
+    selectedImage.value = null
+  }, 300)
 }
 
 // Lifecycle
@@ -184,7 +201,7 @@ useHead({
               class="gallery-item"
               :style="{ animationDelay: `${index * 0.1}s` }"
           >
-            <div class="image-container">
+            <div class="image-container" @click="openImageModal(image)">
               <img
                   :src="image.url"
                   :alt="image.title"
@@ -234,6 +251,40 @@ useHead({
         </div>
       </div>
     </main>
+
+    <!-- Image Modal -->
+    <Transition name="slide">
+      <div v-if="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm" @click="closeImageModal">
+        <div class="relative max-w-4xl w-full mx-4" @click.stop>
+          <button
+              class="absolute top-4 right-4 z-10 bg-gray-800 p-2 rounded-full text-white hover:bg-gray-700 transition-all duration-200"
+              @click="closeImageModal"
+              aria-label="Close modal"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <Transition name="image-fade">
+            <div v-if="selectedImage" class="modal-content">
+              <img
+                  :src="selectedImage.url"
+                  :alt="selectedImage.title"
+                  class="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div class="mt-4 text-center text-white">
+                <h3 class="text-xl font-bold">{{ selectedImage.title }}</h3>
+                <p class="text-sm text-gray-300">{{ selectedImage.description }}</p>
+                <div class="mt-2 flex justify-center gap-4 text-xs">
+                  <span class="photographer">{{ selectedImage.photographer }}</span>
+                  <span class="category-tag bg-white bg-opacity-20 px-2 py-1 rounded-full">{{ selectedImage.category }}</span>
+                </div>
+              </div>
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -269,7 +320,7 @@ useHead({
   100% { transform: rotate(360deg); }
 }
 
-/* Sidebar Styles (same as main page) */
+/* Sidebar Styles */
 .sidebar {
   @apply fixed top-0 left-0 h-full w-80 bg-black bg-opacity-95 backdrop-blur-md z-40 transform -translate-x-full transition-transform duration-300 ease-in-out;
 }
@@ -417,11 +468,11 @@ useHead({
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px) rotate(-90deg);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
   }
 }
 
@@ -439,11 +490,6 @@ useHead({
 
 .gallery-image {
   @apply w-full h-full object-cover transition-all duration-700 ease-out;
-  transform: rotate(-90deg) scale(1.1);
-}
-
-.image-container:hover .gallery-image {
-  transform: rotate(0deg) scale(1);
 }
 
 /* Image Overlay */
@@ -503,6 +549,29 @@ useHead({
 
 .load-more-btn {
   @apply inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl;
+}
+
+/* Modal Transitions */
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateY(100vh); /* Slide from bottom */
+}
+
+.image-fade-enter-active,
+.image-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.image-fade-enter-from,
+.image-fade-leave-to {
+  opacity: 0;
+  transform: scale(0.8); /* Fade and scale effect */
 }
 
 /* Responsive Adjustments */
@@ -581,8 +650,6 @@ useHead({
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
 }
-
-/* Advanced Animations */
 @media (prefers-reduced-motion: no-preference) {
   .gallery-item:nth-child(even) .gallery-image {
     transform: rotate(90deg) scale(1.1);
