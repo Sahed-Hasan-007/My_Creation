@@ -14,6 +14,7 @@ export interface GalleryImage {
     photographer: string
 
     description: string
+
 }
 
 export const useGalleryStore = defineStore('gallery', () => {
