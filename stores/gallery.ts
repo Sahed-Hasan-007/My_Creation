@@ -12,7 +12,6 @@ export interface GalleryImage {
     category: 'portrait' | 'landscape' | 'architecture' | 'nature'
 
     photographer: string
-
     description: string
 }
 
