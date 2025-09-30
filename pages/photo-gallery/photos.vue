@@ -587,14 +587,17 @@ useHead({
   .gallery-item:nth-child(even) .gallery-image {
     transform: rotate(90deg) scale(1.1);
   }
-
   .gallery-item:nth-child(3n) .gallery-image {
     transform: rotate(-45deg) scale(1.1);
   }
-
   .gallery-item:nth-child(4n) .gallery-image {
     transform: rotate(45deg) scale(1.1);
   }
+}
+
+/* Hover state to straighten all images */
+.image-container:hover .gallery-image {
+  transform: rotate(0deg) scale(1); /* Straighten and reset scale */
 }
 
 /* Loading States */
