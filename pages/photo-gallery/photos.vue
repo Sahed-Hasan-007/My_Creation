@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useGalleryStore } from '~/stores/gallery'
 
 // Page meta configuration
@@ -17,6 +17,7 @@ const currentCategory = ref('all')
 const searchTerm = ref('')
 const selectedImage = ref(null) // Track the selected image for the modal
 const showModal = ref(false) // Control modal visibility
+const isMobile = ref(false) // Initialize as false for SSR safety
 
 // Gallery categories
 const categories = ref([
@@ -60,11 +61,60 @@ const closeImageModal = () => {
   }, 300)
 }
 
+// Handle window resize to update isMobile
+const handleResize = () => {
+  if (process.client) {
+    isMobile.value = window.innerWidth < 768
+  }
+}
+
+// Intersection Observer for mobile scroll-based rotation
+let observer = null
+const setupIntersectionObserver = () => {
+  if (process.client && isMobile.value) {
+    observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view')
+            }
+          })
+        },
+        {
+          root: null,
+          threshold: 0.1, // Trigger when 10% of the element is visible
+        }
+    )
+
+    // Observe all gallery items
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      observer.observe(item)
+    })
+  }
+}
+
 // Lifecycle
 onMounted(() => {
   setTimeout(() => {
     loading.value = false
   }, 500)
+
+  // Set initial isMobile value and setup Intersection Observer on client side
+  if (process.client) {
+    isMobile.value = window.innerWidth < 768
+    setupIntersectionObserver()
+    window.addEventListener('resize', handleResize)
+  }
+})
+
+onUnmounted(() => {
+  // Cleanup observer and event listener on client side
+  if (process.client && observer) {
+    observer.disconnect()
+  }
+  if (process.client) {
+    window.removeEventListener('resize', handleResize)
+  }
 })
 
 // SEO Meta
@@ -633,6 +683,34 @@ useHead({
   }
 }
 
+/* Image Rotation Logic */
+@media (prefers-reduced-motion: no-preference) {
+  /* Initial rotation for all screens */
+  .gallery-item:nth-child(even) .gallery-image {
+    transform: rotate(90deg) scale(1.1);
+  }
+  .gallery-item:nth-child(3n) .gallery-image {
+    transform: rotate(-45deg) scale(1.1);
+  }
+  .gallery-item:nth-child(4n) .gallery-image {
+    transform: rotate(45deg) scale(1.1);
+  }
+
+  /* Hover state for larger screens (min-width: 768px) */
+  @media (min-width: 768px) {
+    .image-container:hover .gallery-image {
+      transform: rotate(0deg) scale(1); /* Straighten and reset scale on hover */
+    }
+  }
+
+  /* Scroll-based rotation for mobile screens (max-width: 767px) */
+  @media (max-width: 767px) {
+    .gallery-item.in-view .gallery-image {
+      transform: rotate(0deg) scale(1); /* Straighten and reset scale when in view */
+    }
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -649,22 +727,6 @@ useHead({
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
-}
-@media (prefers-reduced-motion: no-preference) {
-  .gallery-item:nth-child(even) .gallery-image {
-    transform: rotate(90deg) scale(1.1);
-  }
-  .gallery-item:nth-child(3n) .gallery-image {
-    transform: rotate(-45deg) scale(1.1);
-  }
-  .gallery-item:nth-child(4n) .gallery-image {
-    transform: rotate(45deg) scale(1.1);
-  }
-}
-
-/* Hover state to straighten all images */
-.image-container:hover .gallery-image {
-  transform: rotate(0deg) scale(1); /* Straighten and reset scale */
 }
 
 /* Loading States */
