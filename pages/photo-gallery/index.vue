@@ -23,7 +23,7 @@ const galleryImages = ref([
     }
   },
   {
-    url: '/images/photoGallery/bb.jpeg',
+    url: '/images/photoGallery/bb.jpg',
     tag: 'nature',
     title: 'Mountain Wilderness',
     author: {
@@ -37,7 +37,7 @@ const galleryImages = ref([
     title: 'Modern Cityscape',
     author: {
       name: 'Sahed Hasan',
-      avatar: '/images/photoGallery/me.jpg'
+      avatar: '/images/photoGallery/cc.jpg'
     }
   },
   {
@@ -46,7 +46,7 @@ const galleryImages = ref([
     title: 'Golden Hour Vista',
     author: {
       name: 'Sahed Hasan',
-      avatar: '/images/photoGallery/me.jpg'
+      avatar: '/images/photoGallery/dd.jpg'
     }
   },
   {
