@@ -9,6 +9,7 @@ const expandedSections = ref({
   ssc: false
 })
 const activeDocument = ref('resume')
+const viewMode = ref('image') // 'image' or 'pdf'
 
 definePageMeta({
   layout: 'blank',
@@ -18,12 +19,12 @@ definePageMeta({
 const documents = ref({
   resume: {
     id: 'resume',
-    title: 'Professional Resume',
+    title: 'Sahed-Hasan-Resume',
     icon: '📄',
-    pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    imageUrl: 'https://via.placeholder.com/800x1100/1e293b/ffffff?text=Resume+Document',
+    pdfUrl: '/documents/pdf/resume.pdf',
+    imageUrl: '/documents/images/resume.jpg',
     description: 'Complete professional resume with work experience and skills',
-    lastUpdated: '2024-01-15',
+    lastUpdated: '2025-oct-22',
     category: 'Professional'
   },
   hscCertificate: {
@@ -84,10 +85,16 @@ const toggleSection = (section) => {
 
 const selectDocument = (docId) => {
   activeDocument.value = docId
+  // Reset view mode to image when switching documents
+  viewMode.value = 'image'
   // Close mobile menu when document is selected
   if (mobileMenuOpen.value) {
     mobileMenuOpen.value = false
   }
+}
+
+const toggleViewMode = () => {
+  viewMode.value = viewMode.value === 'image' ? 'pdf' : 'image'
 }
 
 const downloadAsPDF = () => {
@@ -352,8 +359,37 @@ useHead({
         <div class="document-viewer-container animate-slide-up">
           <!-- PDF/Document Display -->
           <div class="document-display">
+            <!-- View Mode Toggle Button -->
+            <div class="mb-4 flex justify-end">
+              <button
+                  @click="toggleViewMode"
+                  class="view-toggle-btn"
+                  :class="viewMode === 'pdf' ? 'view-toggle-pdf' : 'view-toggle-image'"
+              >
+                <svg v-if="viewMode === 'image'" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <svg v-else class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ viewMode === 'image' ? 'View as PDF' : 'View as Image' }}
+              </button>
+            </div>
+
+            <!-- Document Frame -->
             <div class="document-frame">
+              <!-- Image View -->
+              <div v-if="viewMode === 'image'" class="image-viewer">
+                <img
+                    :src="currentDocument.imageUrl"
+                    :alt="currentDocument.title"
+                    class="w-full h-auto object-contain"
+                />
+              </div>
+
+              <!-- PDF View -->
               <iframe
+                  v-else
                   :src="currentDocument.pdfUrl"
                   class="w-full h-full rounded-lg"
                   title="Document Viewer"
@@ -561,8 +597,30 @@ useHead({
 
 .document-frame {
   @apply w-full bg-white rounded-lg overflow-hidden shadow-xl;
-  height: 70vh;
+  height: 100vh;
   min-height: 500px;
+}
+
+/* View Toggle Button */
+.view-toggle-btn {
+  @apply flex items-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg;
+}
+
+.view-toggle-image {
+  @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white;
+}
+
+.view-toggle-pdf {
+  @apply bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white;
+}
+
+/* Image Viewer */
+.image-viewer {
+  @apply w-full h-full flex items-start justify-center overflow-auto p-4 bg-gray-100;
+}
+
+.image-viewer img {
+  @apply shadow-2xl;
 }
 
 .download-section {
