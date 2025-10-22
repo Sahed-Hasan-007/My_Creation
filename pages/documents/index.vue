@@ -505,11 +505,11 @@ useHead({
 }
 
 .nav-link {
-  @apply  py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800 hover:border hover:border-white rounded-lg transition-all duration-300 transform hover:translate-x-2;
+  @apply flex py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800 hover:border hover:border-white rounded-lg transition-all duration-300 transform hover:translate-x-2;
 }
 
 .nav-link.active {
-  @apply text-white font-semibold bg-gradient-to-r from-blue-600 to-blue-800 border border-blue-500;
+  @apply text-black font-[700] bg-gray-400;
 }
 
 /* Improved Dropdown Animations */
@@ -534,7 +534,7 @@ useHead({
 }
 
 .sub-nav-link.active {
-  @apply text-white bg-gray-700 border-l-4 border-blue-500;
+  @apply text-black font-[700] bg-gray-400;
 }
 
 .sidebar-footer {
