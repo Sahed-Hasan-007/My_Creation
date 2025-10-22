@@ -144,8 +144,8 @@ useHead({
 
     <!-- Sidebar Menu -->
     <div class="sidebar" :class="{ 'sidebar-open': mobileMenuOpen }">
-      <div class="sidebar-header">
-        <picture class="cursor-pointer">
+      <div class="px-6 py-3 border-b border-gray-700">
+        <picture class="cursor-pointer flex items-center justify-center">
           <img
               :src="'/images/landingPage/mySign.png'"
               alt="Logo"
@@ -309,10 +309,6 @@ useHead({
   .main-content {
     @apply ml-72;
   }
-}
-
-.sidebar-header {
-  @apply p-8 border-b border-gray-800;
 }
 
 .logo {
