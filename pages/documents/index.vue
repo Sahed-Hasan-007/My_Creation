@@ -21,7 +21,6 @@ const documents = ref({
     id: 'resume',
 
     title: 'Sahed-Hasan-Resume',
-
     icon: '📄',
     pdfUrl: '/documents/pdf/resume.pdf',
     imageUrl: '/documents/images/resume.jpg',
