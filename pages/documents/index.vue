@@ -27,6 +27,7 @@ const documents = ref({
     pdfUrl: '/documents/pdf/resume.pdf',
 
     imageUrl: '/documents/images/resume.jpg',
+
     description: 'Complete professional resume with work experience and skills',
     lastUpdated: '2025-oct-22',
     category: 'Professional'
