@@ -30,7 +30,6 @@ const documents = ref({
 
     description: 'Complete professional resume with work experience and skills',
     lastUpdated: '2025-oct-22',
-
     category: 'Professional'
   },
   hscCertificate: {
