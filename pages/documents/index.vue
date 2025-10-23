@@ -19,7 +19,6 @@ definePageMeta({
 const documents = ref({
   resume: {
     id: 'resume',
-
     title: 'Sahed-Hasan-Resume',
     icon: '📄',
     pdfUrl: '/documents/pdf/resume.pdf',
