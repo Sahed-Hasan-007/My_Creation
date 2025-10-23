@@ -23,7 +23,6 @@ const documents = ref({
     title: 'Sahed-Hasan-Resume',
 
     icon: '📄',
-
     pdfUrl: '/documents/pdf/resume.pdf',
     imageUrl: '/documents/images/resume.jpg',
     description: 'Complete professional resume with work experience and skills',
