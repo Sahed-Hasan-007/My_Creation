@@ -30,7 +30,7 @@ const navItems = [
     children: [
       { name: 'E-commerce', to: '/ecommerce' },
       { name: 'Globe', to: '/three/globe' },
-      { name: 'Robo', to: '/three/globe' },
+      { name: 'Login', to: '/login' },
     ]
   },
   { name: 'About', to: '/about' },
