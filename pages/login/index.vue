@@ -371,6 +371,16 @@ const onSubmit = handleSubmit(async (values) => {
 .game-input::placeholder {
   color: rgba(255,255,255,0.2);
 }
+.game-input:-webkit-autofill,
+.game-input:-webkit-autofill:hover,
+.game-input:-webkit-autofill:focus,
+.game-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgb(0, 10, 22) inset !important;
+  box-shadow: 0 0 0 1000px rgb(0, 10, 22) inset !important;
+  -webkit-text-fill-color: #e0f8ff !important;
+  caret-color: #e0f8ff;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .eye-btn {
   background: transparent;
   border: none;
