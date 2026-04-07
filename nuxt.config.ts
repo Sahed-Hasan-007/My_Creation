@@ -22,7 +22,6 @@ export default defineNuxtConfig({
             ],
         }
     },
-
     // Vite configuration for Three.js optimization
     vite: {
         optimizeDeps: {
