@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     build: {
         transpile: ['three']
     },
-
     // App configuration for globe styling
     app: {
         head: {
