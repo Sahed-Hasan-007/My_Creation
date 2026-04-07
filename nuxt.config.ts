@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['stores']
     },
-
     // Build configuration for Three.js
     build: {
         transpile: ['three']
