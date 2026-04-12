@@ -6,5 +6,4 @@
   <div class="">
     <slot/>
   </div>
-
 </template>
