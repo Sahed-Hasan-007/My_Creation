@@ -48,7 +48,6 @@
   z-index: 1;
   pointer-events: none;
 }
-
 /* Perspective grid overlay */
 .grid-overlay {
   position: absolute;
