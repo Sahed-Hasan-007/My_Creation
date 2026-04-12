@@ -34,7 +34,6 @@
   );
   z-index: 0;
 }
-
 /* Subtle scanlines for a gaming CRT feel */
 .scanlines {
   position: absolute;
