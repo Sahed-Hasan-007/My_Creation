@@ -149,7 +149,7 @@ useHead({
           <img
               :src="'/images/landingPage/mySign.png'"
               alt="Logo"
-              class="h-12 w-auto transition-transform duration-500 hover:scale-110 hover:rotate-6 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+              class="h-16 w-auto transition-transform duration-500 hover:scale-110 hover:rotate-6 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
           />
         </picture>
       </div>
