@@ -147,12 +147,12 @@ useHead({
 
     <!-- Sidebar Menu -->
     <div class="sidebar" :class="{ 'sidebar-open': mobileMenuOpen }">
-      <div class="sidebar-header">
-        <picture class="cursor-pointer">
+      <div class="px-6 py-3 border-b border-gray-700">
+        <picture class="cursor-pointer flex items-center justify-center">
           <img
               :src="'/images/landingPage/mySign.png'"
               alt="Logo"
-              class="h-12 w-auto transition-transform duration-500 hover:scale-110 hover:rotate-6 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+              class="h-16 w-auto transition-transform duration-500 hover:scale-110 hover:rotate-6 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
           />
         </picture>
       </div>
