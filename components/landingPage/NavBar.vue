@@ -28,6 +28,7 @@ const navItems = [
   {
     name: 'Explore',
     children: [
+      // { name: 'E-commerce', to: '/ecommerce' },
       { name: 'E-commerce', to: '/ecommerce' },
       { name: 'Globe', to: '/three/globe' },
       { name: 'Login', to: '/login' },
