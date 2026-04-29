@@ -29,7 +29,7 @@ const navItems = [
     name: 'Explore',
     children: [
       // { name: 'E-commerce', to: '/ecommerce' },
-      { name: 'E-commerce', to: '/ecommerce' },
+      { name: 'E-commerce', to: 'https://bd-funnel.bdfunnelbuilder.site/' },
       { name: 'Globe', to: '/three/globe' },
       { name: 'Login', to: '/login' },
     ]
