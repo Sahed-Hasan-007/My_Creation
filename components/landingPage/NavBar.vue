@@ -94,7 +94,6 @@ const navItems = [
                   <p>{{ child.name }}</p>
                 </nuxt-link>
               </div>
-
             </div>
           </template>
         </div>
